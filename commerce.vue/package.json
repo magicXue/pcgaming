@@ -1,0 +1,27 @@
+{
+  "name": "commerce.vue",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "bulma": "^0.9.3",
+    "core-js": "^3.16.4",
+    "vue": "^3.2.6",
+    "vue-loader-v16": "^16.0.0-beta.5.4",
+    "vue-router": "^4.0.11",
+    "vuex": "^4.0.2"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.5.13",
+    "@vue/cli-plugin-router": "^4.5.13",
+    "@vue/cli-plugin-vuex": "^4.5.13",
+    "@vue/cli-service": "^4.5.13",
+    "@vue/compiler-sfc": "^3.2.6",
+    "sass": "^1.38.2",
+    "sass-loader": "^8.0.2"
+  }
+}
