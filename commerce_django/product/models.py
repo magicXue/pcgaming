@@ -19,7 +19,7 @@ class Product(models.Model):
     category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     slug = models.SlugField()
-    decription = models.TextField(blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     image = models.ImageField(upload_to='uploads/', blank=True, null=True)
     thumbnail = models.ImageField(upload_to='uploads/', blank=True, null=True)
@@ -42,15 +42,15 @@ class Product(models.Model):
             return 'http://127.0.0.1:8000' + self.thumbnail.url
         else:
             if self.image:
-                self.thumbnail = self.make_thubnail(self.image)
+                self.thumbnail = self.make_thumbnail(self.image)
                 self.save()
                 return 'http://127.0.0.1:8000' + self.thumbnail.url
             else:
                 return '' 
     
-    def make_thubnail(self, image, size=(300,200)):
+    def make_thumbnail(self, image, size=(300,200)):
         img = Image.open(image)
-        img.conver('RGB')
+        img.convert('RGB')
         img.thumbnail(size)
 
         thumb_io = BytesIO()
