@@ -12,6 +12,27 @@
       </div>
       <div class="navbar-menu" id="navbar-menu"
       :class="{'is-active': showMobileMenu}">
+        <div class="navbar-start">
+          <div class="navbar-item">
+            <form action="/search" method="get">
+            <div class="field has-addons">
+              <div class="control">
+
+              
+                <input type="text" class="input" placeholder="searching..." name="query">
+              </div>
+              <div class="control">
+                <button class="button is-success">
+                  <span class="icon">
+                    <i class="fas fa-search">
+                    </i>
+                  </span>
+                </button>
+              </div>
+            </div>
+            </form>
+          </div>
+        </div>
         <div class="navbar-end">
           <router-link to="/Keyboard" class="navbar-item">Keyboard</router-link>
           <router-link to="/Mouse" class="navbar-item">Mouse</router-link>

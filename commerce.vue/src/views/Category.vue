@@ -15,6 +15,7 @@
 
 <script>
 import axios from 'axios'
+import { toast } from 'bulma-toast'
 import ProductComponent from '@/components/ProductComponent'
 export default{
     name:'Category',
