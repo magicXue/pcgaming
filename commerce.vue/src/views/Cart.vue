@@ -27,6 +27,13 @@
                 </table>
                 <p v-else>Nothing in your cart..</p>
             </div>
+
+            <div class="column">
+                <h2 class="subtitle">Summary</h2>
+                <strong>${{ cartTotalPrice.toFixed(2) }}</strong>, {{ cartTotalLength }} items
+                <hr>
+                <router-link to="/cart/checkout" class="button is-dark">Proceed to checkout</router-link>
+            </div>
         </div>
     </div>
 </template>
@@ -53,6 +60,11 @@ export default {
         cartTotalLength() {
             return this.cart.items.reduce((acc, curVal) => {
                 return acc += curVal.quantity
+            }, 0)
+        },
+        cartTotalPrice() {
+            return this.cart.items.reduce((acc, curVal) => {
+                return acc += curVal.product.price * curVal.quantity
             }, 0)
         }
     }
