@@ -22,6 +22,7 @@
                             v-for="item in cart.items"
                             :key="item.product.id"
                             :initialItem="item"
+                            v-on:removeFromCart="removeFromCart"
                         />
                     </tbody>
                 </table>
@@ -66,6 +67,11 @@ export default {
             return this.cart.items.reduce((acc, curVal) => {
                 return acc += curVal.product.price * curVal.quantity
             }, 0)
+        }
+    },
+    methods: {
+        removeFromCart(item) {
+            this.cart.items = this.cart.items.filter(i => i.product.id != item.product.id)
         }
     }
 }
