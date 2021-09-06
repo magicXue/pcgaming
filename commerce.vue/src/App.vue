@@ -38,7 +38,12 @@
           <router-link to="/Mouse" class="navbar-item">Mouse</router-link>
           <div class="navbar-item">
             <div class="buttons">
-              <router-link to="/login" class="button is-light">Log in</router-link>
+              <template v-if="$store.state.isAuthenticated">
+                <router-link to="/my-account" class="button is-light">My account</router-link>
+              </template>
+              <template v-else>
+               <router-link to="/login" class="button is-light">Log in</router-link>
+              </template>
               <router-link to="/cart" class="button is-success">
                 <span class="icon"><i class="fas fa-shopping-cart"></i></span>
                 <span>Cart ({{cartTotalLength}})</span>
@@ -78,7 +83,7 @@ export default {
     const token = this.$store.state.token
 
     if(token) {
-      axios.defaults.headers.common['Authorization'] = "Token" + token
+      axios.defaults.headers.common['Authorization'] = "Token " + token
     }else{
       axios.defaults.headers.common['Authorization'] = ''
     }
