@@ -12,6 +12,7 @@ from rest_framework.response import Response
 
 from .models import Order, OrderItem
 from .serializers import OrderSerializer
+from .serializers import MyOrderSerializer
 
 @api_view(['POST'])
 @authentication_classes([authentication.TokenAuthentication])
@@ -36,4 +37,13 @@ def checkout(request):
         except Exception:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class OrderList(APIView):
+    authentication_classes = [authentication.TokenAuthentication]
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request, format=None):
+        order = Order.objects.filter(user=request.user)
+        serializer = MyOrderSerializer(order, many=True)
+        return Response(serializer.data)
     
