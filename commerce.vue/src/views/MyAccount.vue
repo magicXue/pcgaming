@@ -38,6 +38,7 @@ export default {
         this.getMyOrders()
     },
     methods: {
+        // get order details by using api
         async getMyOrders() {
             this.$store.commit('setIsLoading', true)
 

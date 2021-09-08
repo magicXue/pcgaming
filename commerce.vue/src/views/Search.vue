@@ -36,13 +36,14 @@ export default {
         let url = window.location.search.substring(1)
         let urlSearchParams = new URLSearchParams(url)
         let params = Object.fromEntries(urlSearchParams.entries())
-        console.log('',params);
+        // url param:query is target 
         if(params.hasOwnProperty('query')){
             this.query = params['query']
             this.performSearch()
         }
     },
     methods: {
+        // using search bar to get product by using api
         async performSearch(){
             this.$store.commit('setIsLoading', true)
             await axios

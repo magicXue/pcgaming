@@ -38,6 +38,7 @@ export default{
         this.getProduct()
     },
     methods: {
+        // get product by using api
         async getProduct() {
             this.$store.commit('setIsLoading', true);
             const product_slug = this.$route.params.product_slug

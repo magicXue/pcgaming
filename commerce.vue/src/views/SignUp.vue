@@ -55,8 +55,10 @@ export default {
         }
     },
     methods: {
+        // submit function
         submitForm() {
             this.errors = []
+            // check all form data is vaild
             if(this.username === '') {
                 this.errors.push("The username can not empty")
             }
@@ -85,7 +87,7 @@ export default {
                         this.$router.push('/login')
                     })
                     .catch(error => {
-                        
+                        // getting error to showing on the front page
                         if(error.response) {
                             for (const property in error.response.data) {
                                 this.errors.push(`${property}: ${error.response.data[property]}`)
